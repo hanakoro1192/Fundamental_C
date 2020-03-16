@@ -328,3 +328,179 @@ void put_chars(int ch, int n){
         }
         puts("---------");
     }
+
+//構造体
+typedef 定義されている型　定義する新しい関数名
+
+typedef int seisu_t; //のような形
+
+//例
+typedef int* intPtr_t;
+
+//*intPtr_t型を引数に取りintPtr_t型を戻り値とする関数
+//pのポインタ値を３だけ進めたポインタ値を返す
+intPtr_t foo(intPtr_t p){
+    return p + 3;
+}
+
+int main(){
+    int a[10];
+    intPtr_t p; //intPtr_t型の宣言
+
+    p = foo(a); //pの値はa[3]を指すポインタ値
+}
+
+//サンプルプログラム
+#include <stdio.h>
+
+typedef struct {
+    char name[20];
+    char sex;
+    int age;
+    double height;
+    double weight;
+} person_t;
+
+int main(){
+    person_t p = {"Tom", 'M',19, 175.2, 69.5};
+
+    printf("%s %c %d %f %f\n", p.name, p.sex, p.age, p.height, p.weight);
+    p.age++;
+    p.height += 0.7;
+    p.weight -= 1.5;
+    printf("%s %c %d %f %f\n", p.name, p.sex, p.age, p.height, p.weight);
+
+    return 0;
+}
+
+//構造体のサイズ
+#include <stdio.h>
+
+typedef struct{
+    char name[20];
+    char sex;
+    int age;
+    double height;
+    double weight;
+} person_t;
+
+int main(void){
+    person_t p;
+
+    printf("name=%d, sex=%d, age=%d, height=%d, weight=%d\n",sizeof(p.name),sizeof(p.sex),sizeof(p.age),sizeof(p.height),sizeof(p.weight));
+    printf();
+};
+
+typedef struct {
+    char name[20];
+    char sex;
+};
+
+
+/**
+ * 問題6-10
+ * 英語の点数と数学の点数の最低点を求める**/
+
+#include <stdio.h>
+
+#define NUMBER 5 //学生の数
+
+//要素数nの配列vの最小値を返す
+int min_of(const int v[], int n)
+{ //この中に処理を書いてしまう
+    int i;
+    int min = v[10];
+
+    for(i = 1; i < n; i++) //ここが最低点を表す
+        if(v[i] < min) //minは上記で設定している
+            min = v[i];
+    return min;
+}
+
+int main(void){
+    int i;  
+    int eng[NUMBER]; //英語の点数
+    int mat[NUMBER]; //数学の点数
+    int min_e, min_m; //最低点
+
+    printf("%d人の点数を入力してください. \n", NUMBER);
+    for(i = 0; i < NUMBER; i++){
+        printf("[%d]英語", i+1); scanf("%d", &eng[i]);
+        printf("   数学:");  scanf("%d", &mat[i]);
+    }
+    min_e = min_of(eng, NUMBER); //英語の最低点
+    min_m = min_of(mat, NUMBER); //数学の最低点
+
+    printf("英語の最低点=%d\n", min_e);
+    printf("数学の最低点=%d\n", min_m);
+
+    return 0;
+}
+
+/**
+ * 問題6-1
+ * ２つの整数の小さい方の値を求める**/
+
+#include <stdio.h>
+
+//２つの整数の小さい方の値を返す
+int min2(int a, int b){
+    return (a < b) ? a : b;
+}
+
+int main(void){
+    int n1, n2;
+
+    puts("２つの整数を入力してください");
+    printf("整数1:"); scanf("%d", &n1);
+    printf("整数2:"); scanf("%d", &n2);
+
+    printf("小さい方の値は%dです.\n", min2(n1, n2));
+
+    return 0;
+}
+
+
+/**
+ * ３つの整数の最小値を求める**/
+#include <stdio.h>
+
+int min3(int a, int b, int c){
+    int min = a; //一番最小値
+
+    if(b < min) min = b;
+    if(c < min) min = c;
+    return min;
+}
+
+int main(void){
+
+    int A, B, C;
+
+    puts("３つの整数を入力してください");
+    printf("整数a:"); scanf("%d", &A);
+    printf("整数b:"); scanf("%d", &B);
+    printf("整数c:"); scanf("%d", &C);
+
+    printf("最小値は%dです。\n", min3(A, B, C));
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int cube(int x){
+
+    //値を３つ返す
+    return x * x * x;
+}
+
+int main(void){
+
+    int n;
+
+    printf("整数値:"); scanf("%d",&n);
+    printf("%dの３条は%dです.\n", n, cube(n));
+
+    return 0;
+}
