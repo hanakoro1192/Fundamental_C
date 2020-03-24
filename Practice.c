@@ -141,4 +141,41 @@ int main(void){
     return 0;
 }
 
+//平均値を求めるプログラム
+#include <stdio.h>
+#define SUM 20;
 
+int main(void){
+    int j, practice; //ここで定義を行う
+
+    int a[4] = {3, 2, 5, 1}; //この時点では配列は代入していない
+
+    float avg;
+
+    practice = 0; //practiceの値を代入する
+    for(j = 0; j < a[4]; j++){
+        practice = practice + a[20];
+    }
+    avg = (float)practice / a[20];
+
+    printf("合計%d", practice);
+    printf("平均：%.1f\n", avg);
+    return 0;
+}
+
+//代入の方法について
+#include <stdio.h>
+
+int main(void){
+    int i;
+    int array[4] = {1, 2, 3, 4};
+
+    for(i = 0; i < 4; i++){
+        array[i] = 2 - i; //for文を使って一個ずつの要素を取得する
+        if(i < 3){
+            printf("%d", array[i]);
+        }else{
+            printf("%d\n", array[i]);
+        }
+    }
+}

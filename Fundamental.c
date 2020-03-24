@@ -504,3 +504,84 @@ int main(void){
 
     return 0;
 }
+
+
+/**
+ *こんちにはを入力する**/
+
+#include <stdio.h>
+
+//こんにちは
+void hello(void){
+    printf("こんにちは\n");
+}
+
+void kumasan(void){
+    puts("くまさん");
+}
+
+//main関数で処理を記入
+int main(void){
+    hello();
+    kumasan();
+
+    return 0;
+}
+
+//平均値を求めるプログラム
+#include <stdio.h>
+#define NUM 10;
+
+int main(void){
+    int i, practice;
+
+    int a[] = {5,7,2,1,9,5,3,8,2,3};
+
+    float avg;
+
+    practice = 0;
+    for(i = 0; i < NUM i++){
+        practice = practice + a[i];
+    }
+    avg = (float)practice / NUM;
+
+    printf("合計%d", practice);
+    printf("平均：%.1f\n", avg);
+    return 0;
+}
+
+//不角定数の平均値を求めるプログラムを作る
+#include <stdio.h>
+#define KAZU 5;
+
+int main(void){
+    int a[5];
+    int max, min;
+
+    printf("aの値");
+    scanf("%d", &a[0]);
+
+    printf("bの値");
+    scanf("%d", &a[1]);
+
+    printf("cの値");
+    scanf("%d", &a[2]);
+
+    printf("dの値");
+    scanf("%d", &a[3]);
+
+    printf("eの値");
+    scanf("%d", &a[4]);
+
+    //最低点と最高点を判別
+    max = min = a[0];
+    for(int i = 0; i < 5; i++){
+        if(max < a[i]){
+            max = a[i];
+        }
+        if(min > a[i]){
+            min = a[i];
+        }
+    }
+}
+
